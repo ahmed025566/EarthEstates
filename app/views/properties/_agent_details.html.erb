@@ -19,3 +19,19 @@
   </div>
 </div>
 
+
+<script>
+  $(() => {
+    $('#show-tel').on('click', (e) => {
+      const $button = $(e.target);
+      e.target.style.background = '#31D2F2'
+      $button.find('span').text($button.data('tel'));
+    })
+  })
+
+  $(() => {
+    $('#mail').on('click', () => {
+      $('.modal').removeClass('none')
+    })
+  })
+</script>

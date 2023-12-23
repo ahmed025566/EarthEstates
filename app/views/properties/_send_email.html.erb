@@ -37,3 +37,32 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(() => {
+    $('#send-message').on('click', () => {
+      var agent_id = $('#agent_id').val(),
+        first_name = $('#message-first-name').val(),
+        last_name = $('#message-last-name').val(), 
+        email = $('#message-email').val(),
+        message= $('#message-text').val();
+      $.ajax({
+        url: '/agent/message',
+        method: 'post',
+        data: {
+          agent_id: agent_id,
+          first_name: first_name,
+          last_name: last_name,
+          email: email,
+          message: message
+        },
+        success: function(data) {
+          $('.modal-body form').remove();
+          $('#send-message').remove();
+          $('.modal-content').css('height', '200px'); 
+          $('.modal-body').html("<p>Your message has been sent successfully!</p>")
+        }
+      })
+    })
+  })
+</script>

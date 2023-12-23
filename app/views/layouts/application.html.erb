@@ -41,7 +41,12 @@
     </div>
     <script>
       feather.replace();
-     
+      if(document.querySelector('.notifications').innerHTML.trim().length > 0) {
+        $('.notifications').addClass('flex');
+        setTimeout(() => {
+          $('.notifications').removeClass('flex');
+        }, 3000)
+      }
     </script>
   </body>
 </html>
