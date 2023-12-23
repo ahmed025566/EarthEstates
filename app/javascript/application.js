@@ -3,5 +3,12 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 $(() => {
+   $('.propPhoto').on('click', () => {
+    console.log('photo is clicked')
+   })
+})
+
+
+$(() => {
     console.log('App is up and running with JQuery')
 })
