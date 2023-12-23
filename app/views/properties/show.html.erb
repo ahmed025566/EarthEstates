@@ -1,0 +1,104 @@
+<%= property_photo(@property, 'fullSize' ) %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-lg-5">
+          <p class="h4 mb-0"><%= @property.for_sale? ? "For Sale" : "For Rent" %></p>
+          <p class="mb-0"><%= @property.address %></p>
+          <p class="h2 mb-3">
+          <% if @property.for_sale? %>
+            <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : 'Offers Accepted' %>
+          <% else %>
+            <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : 'Open for enquiries' %> / month
+          <% end %>
+          </p>
+        </div>
+        <div class="col-lg-7 text-center">
+          <div class="row mt-sm-3 bg-light p-3">
+            <div class="col-4">
+              <i class="fa-solid fa-bed text-muted ml-0"></i><br />
+              <small><%= @property.rooms %>Bedrooms</small>
+            </div>
+            <div class="col-4">
+              <i class="fa-solid fa-bath text-muted ml-0"></i><br />
+              <small><%= @property.bathrooms %>Bathrooms</small>
+            </div>
+            <div class="col-4">
+              <i class="fa-solid fa-car text-muted ml-0"></i><br />
+              <small><%= @property.parking_spaces %>Parking</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border-top border-bottom mt-5 mb-4 pt-4 pb-4">
+        <div class="col-6">
+          <% if @property.for_sale?  %>
+            <strong><%= link_to "Est. Monthly Repayments of #{number_to_currency(((@property.price * 0.9) / 360), precision: 0)} *", "#",  class: 'text-success' %></strong>
+          <% else %>
+            <strong>Available from <%= @property.available_date.strftime("%a") %>, <%= @property.available_date.day.ordinalize %> <%= @property.available_date.strftime("%b ") %></strong>
+          <% end %>
+        </div>
+        <div class="col-6 text-end">
+          <strong><%= link_to 'Can I afford this property?', "#", class: 'text-success' %> </strong>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="h3"><%= @property.name%></p>
+          <p class="h5">Property Description</p>
+          <div id="prop-details" class="closed">
+            <%= simple_format @property.details %>
+          </div>
+          <button class="btn btn-outline-info mt-3" id="toggle-details">Show more</button>
+          <% if @property.for_sale %>
+            <p class="mt-5">This rate is based on a 30 year morgatge, after paying an initial 10% down payment. shorter term mortages would require a higher monthly repayment.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+        <%= render 'properties/agent_details', agent: @agent %>
+
+    </div>
+  </div>
+ 
+</div>
+
+<section class="mt-5 mb-5">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <p class="h2 mb-3">Other properties by this agent</p>
+    </div>
+    <%= render 'properties/list', properties: @agent_properties %>
+  </div>
+</div>
+</section>
+<%= render "properties/send_email", agent: @agent %>
+
+<script>
+  $(() => {
+    $('#toggle-details').on('click', () => {
+      var details = $('#prop-details')
+      details.toggleClass('open')  
+      if(details.hasClass('open')) {
+        $('#toggle-details').text('Show less')
+      } else {
+        $('#toggle-details').text('Show more')
+      }
+    })
+  })
+  // cloasing the modal
+  
+    $(() => {
+      $('.x').on('click', () => {
+        $('.modal').addClass('none')
+      })
+    })
+
+</script>
+
+
+
+

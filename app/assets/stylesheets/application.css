@@ -1,0 +1,147 @@
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.singIn {
+  height: 350px;
+  margin-top: 20px;
+}
+.signUp {
+  min-height: 420px;
+  margin-top: 50px;
+}
+
+.search_bar {
+  background-color: rgba(255, 255, 255, .1);
+  color: #fff;
+  border: none;
+  border-radius: 1px;
+}
+
+
+
+.editPhoto, .propPhoto {
+  width: 354px;
+  height: 170px;
+}
+
+.fullSize {
+  width: 100%;
+  min-height: 500px;
+  max-height: 500px;
+  margin-bottom: 40px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.closed {
+  height: 150px;
+  overflow: hidden;
+}
+
+.open {
+  height: auto;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.59);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 500px;
+  height: 500px;
+}
+
+.close {
+  background-color: transparent;
+  border: none;
+  color: gray;
+  font-size: 35px;
+}
+
+.modal-header {
+  padding: 5px 15px;
+}
+
+.none {
+  display: none;
+}
+
+.notifications {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.50);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
+  position: absolute;
+  top: 0;
+}
+
+
+.flex {
+  display: flex;
+}
+
+.image_label {
+  margin: -10px 0px 5px 10px;
+}
+
+.jumbo {
+  background-color: #E9ECEF;
+  height: 350px;
+  display: flex;
+  align-items: center;
+}
+
+.h {
+  height: 250px;
+}
+
+.banner {
+  background: url("homecover2.webp") no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  text-shadow: 2px 2px 2px #777;
+}
+
+.blog-banner {
+  background: url("blogCover.webp") no-repeat center center;
+  background-size: cover;
+  color: #fff;
+  text-shadow: 2px 2px 2px #777;
+}
+
+.under_construction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2B3035;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+}
+
+.graph {
+  width: 1030px;
+}

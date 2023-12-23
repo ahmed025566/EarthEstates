@@ -1,0 +1,21 @@
+<h2>Accounts</h2>
+
+
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Registering Date</th>
+    <th>Show</th>
+  </thead>
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= account.full_name %></td>
+        <td><%= account.email %></td>
+        <td><%= account.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= link_to 'View Profile', profile_path(account.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

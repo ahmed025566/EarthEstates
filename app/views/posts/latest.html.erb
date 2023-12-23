@@ -1,0 +1,23 @@
+<div class="p-4 shadow-4 mb-5 rounded-3 jumbo h blog-banner">
+  <div class="container">
+    <h1 class="display-4">Latest Blog posts</h1>
+    <p>Stay up to date with the latest property news at Earth Estates!</p>
+  </div>
+</div>
+
+<div class="container">
+  <% if @posts.empty?  %>
+    <p>No posts to display.</p>
+  <% else %>
+    <% @posts.each do |post| %>
+      <div class="row">
+        <div class="col">
+          <h2><%= post.title %></h2>
+          <p><%= post.summary %></p>
+          <%= link_to 'Read more »', post_path(post), class: 'btn btn-success' %>
+          <hr />
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

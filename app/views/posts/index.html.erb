@@ -1,0 +1,15 @@
+<p  class="notifications"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <div>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post %>
+    </p>
+    </div>
+  <% end %>
+  <%= link_to "New post", new_post_path, class: 'btn btn-primary float-end mb-2' %>
+</div>

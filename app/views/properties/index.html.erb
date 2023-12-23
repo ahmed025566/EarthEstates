@@ -1,0 +1,34 @@
+<div class="container">
+<h1 class="h3">Properties</h1>
+
+<table class="table table-striped">
+  <thead>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Price</th>
+    <th>Rooms</th>
+    <th>Bathrooms</th>
+    <th colspan="3"></th>
+  </thead>
+  <tbody>
+  <% @properties.each do |prop| %>
+    <tr>
+      <td><%= prop.name%></td>
+      <td><%= prop.address%></td>
+      <td><%= prop.price%></td>
+      <td><%= prop.rooms%></td>
+      <td><%= prop.bathrooms%></td>
+      <td><%= link_to "show", prop %></td>
+      <% if account_signed_in? %>
+        <td><%= link_to "Edit", edit_property_path(prop) %></td>
+        <td><%= link_to "Destroy", prop, method: :delete, date: {confirm: 'Are you sure?'} %></td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% if account_signed_in? %>
+  <%= link_to "New property", new_property_path, class: 'btn btn-success' %>
+<% end %>
+</div>
+

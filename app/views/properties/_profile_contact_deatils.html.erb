@@ -1,0 +1,31 @@
+<div class="text-center">
+  <div class="mb-2">
+    <%= profile_picture agent %>
+  </div>
+  <h3 class="h4 m-0"><%= agent.full_name %></h3>
+  <p><%= agent.company %></p>
+  <div class="row justify-content-md-center">
+    <div class="col-md-10">
+      <button class="btn btn-info form-control text-uppercase mb-1" id="show-tel" data-tel="<%=  agent.telephone %>" style="color: white"><i class="fas fa-phone mr-2"></i> <span>Call</span> </button>
+    </div>
+    <div class="col-md-10">
+      <button class="btn btn-success form-control text-uppercase" id="mail" ><i class="fas fa-envelope mr-2"></i> Email</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(() => {
+    $('#show-tel').on('click', (e) => {
+      const $button = $(e.target);
+      e.target.style.background = '#31D2F2'
+      $button.find('span').text($button.data('tel'));
+    })
+  })
+
+  $(() => {
+    $('#mail').on('click', () => {
+      $('.modal').removeClass('none')
+    })
+  })
+</script>

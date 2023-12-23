@@ -1,0 +1,35 @@
+<main role="main">
+<div class="p-4 shadow-4 mb-5 rounded-3 jumbo banner" >
+  <div class="container">
+    <h1 class="display-4">Search for your new home today...</h1>
+    <p>Choose from hundreds of beautiful bungalows, apartments and villas </p>
+    <p><%= link_to "View latest properties", properties_path, class: "btn btn-success" %></p>
+  </div>
+</div>
+
+<section id="latest-properties" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3 class="mb-4">Latest properties</h3>
+      </div>
+    </div>
+    <div class="row">
+      <%= render 'properties/list', properties: @properties %>
+    </div>
+  </div>
+</section>
+
+<section id="latest-posts" class="mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3 class="mb-4">Latest News</h3>
+      </div>
+    </div>
+    <div class="row">
+      <%= render 'posts/list', posts: @posts %>
+    </div>
+  </div>
+</section>
+</main>
