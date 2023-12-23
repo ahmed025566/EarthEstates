@@ -57,27 +57,6 @@
 </section>
 <%= render "properties/send_email", agent: @account %>
 
-<script>
-  $(() => {
-    $('#toggle-details').on('click', () => {
-      var details = $('#prop-details')
-      details.toggleClass('open')  
-      if(details.hasClass('open')) {
-        $('#toggle-details').text('Show less')
-      } else {
-        $('#toggle-details').text('Show more')
-      }
-    })
-  })
-  // cloasing the modal
-  
-    $(() => {
-      $('.x').on('click', () => {
-        $('.modal').addClass('none')
-      })
-    })
-
-</script>
 
 
 
