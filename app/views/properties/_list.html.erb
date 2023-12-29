@@ -22,28 +22,4 @@
         <% end %>
       </div>
     </div>
-  <% end %><% properties.each do |prop| %>
-    <div class="col-sm-6 col-md-4 col-lg3 mb-3">
-     <div class="property border">
-        <%= link_to property_path(prop) do %>
-          <%= property_photo(prop, 'propPhoto')%>
-          <div class="proberty-summary mb-2 p-3">
-            <h3 class="h5"><%= link_to prop.name, property_path(prop), class: 'text-dark' %></h3>
-            <span class="mr-4" style="margin-right: 10px">
-              <%= prop.rooms %>
-              <i class="fa-solid fa-bed text-muted ml-1"></i>
-            </span>
-            <span class="mr-2" style="margin-right: 10px">
-              <%= prop.bathrooms %>
-              <i class="fa-solid fa-bath text-muted ml-1"></i>
-            </span>
-            <span class="mr-2" style="margin-right: 10px">
-              <%= prop.parking_spaces %>
-              <i class="fa-solid fa-car text-muted ml-1"></i>
-            </span>
-            <p class="mt-2"><%= prop.address %></p>
-          </div>
-        <% end %>
-      </div>
-    </div>
   <% end %>

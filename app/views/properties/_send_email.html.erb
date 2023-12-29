@@ -8,7 +8,7 @@
     </div>
     <div class="modal-body">
       <%= form_tag email_agent_path, id: 'email-agent' do %>
-        <%= hidden_field_tag :agent_id, agent.id %>
+        <%= hidden_field_tag :agent_id, agent.full_name %>
 
         <div class="form-group">
           <label for="message-first-name" class="col-form-label">First Name:</label>
@@ -46,8 +46,9 @@
         last_name = $('#message-last-name').val(), 
         email = $('#message-email').val(),
         message= $('#message-text').val();
+
       $.ajax({
-        url: '/agent/message',
+        url: 'https://formspree.io/f/xbjelnrl',
         method: 'post',
         data: {
           agent_id: agent_id,
@@ -57,12 +58,19 @@
           message: message
         },
         success: function(data) {
-          $('.modal-body form').remove();
-          $('#send-message').remove();
-          $('.modal-content').css('height', '200px'); 
-          $('.modal-body').html("<p>Your message has been sent successfully!</p>")
+         
         }
       })
     })
+
+    $('#send-message').on('click', () => {
+      setTimeout(() => {
+        $('.modal-body form').remove();
+        $('#send-message').remove();
+        $('.modal-content').css('height', '200px'); 
+        $('.modal-body').html("<p>Your message has been sent successfully!</p>")
+      }, 1100)
+    })
+
   })
 </script>
